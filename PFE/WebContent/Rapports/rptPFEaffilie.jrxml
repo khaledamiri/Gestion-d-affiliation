@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPFEaffilie" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d818f66-1fd8-464d-8b26-1f01095f0226">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="43"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#C3CFD9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#E6F3FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8FCFF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Affiliedataset" uuid="c943ce3b-8c2c-4b04-b7e0-783862eaedd4">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     a.`adresseIpaffilie`,
+     a.`adresseIpClient`,
+     a.`designBanniere`,
+     a.`date`
+FROM
+     `pfe`.`adresseip` a
+]]>
+		</queryString>
+		<field name="adresseIpaffilie" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="adresseIpClient" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="designBanniere" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="date" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="Affilie" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT  adresseIpaffilie, adresseIpClient, designBanniere, date FROM pfe.adresseip a;
+]]>
+	</queryString>
+	<field name="adresseIpaffilie" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adresseIpClient" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="designBanniere" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="385" height="79" uuid="0b88d9d3-7803-4b86-b181-f8026d866cdd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="36" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Rapport d'activité]]></text>
+			</staticText>
+			<image>
+				<reportElement x="417" y="0" width="138" height="79" uuid="428614c9-a640-42db-a197-6e353a919f14"/>
+				<imageExpression><![CDATA["C:\\Users\\Amiri\\Desktop\\iprecision.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="21" width="51" height="20" uuid="4fdec969-404d-4c26-8250-e789421fe482"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[M/Mme :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="22" width="98" height="20" uuid="2b8e107e-7646-4319-adcd-1b429e262707"/>
+				<textFieldExpression><![CDATA[$P{Affilie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="21" width="133" height="20" uuid="13cd1afe-9dd9-4266-b0eb-9cb237c31708"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Votre commission est :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="2" width="100" height="20" uuid="7e093474-81fb-4de0-ad52-9dafd7914a4c"/>
+				<text><![CDATA[adresseIpaffilie]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="47" width="100" height="20" backcolor="#CCCCCC" uuid="8c06e69c-8725-4b4a-8752-f4a96b19833f"/>
+				<textFieldExpression><![CDATA[$F{adresseIpaffilie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="0" width="100" height="20" forecolor="#66FF33" uuid="0bfb5295-4b34-443e-9f3c-496385854776"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Affilie]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="47" width="100" height="20" backcolor="#CCCCCC" uuid="91786156-24c5-4be5-98f6-d6f7b9893e04"/>
+				<textFieldExpression><![CDATA[$F{adresseIpClient}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="47" width="100" height="20" backcolor="#CCCCCC" uuid="3cb8a76d-c1d3-4778-b63a-c9541f900af1"/>
+				<textFieldExpression><![CDATA[$F{designBanniere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="47" width="100" height="20" backcolor="#CCCCCC" uuid="0c9f7692-b515-48da-ae21-7b36d9d72e99"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="0" width="100" height="20" forecolor="#66FF33" uuid="d7b32a51-3897-4da1-8b2e-c99a0e0cbb35"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="0" width="100" height="20" forecolor="#66FF33" uuid="1256cfa4-102e-47d5-9592-4e955e39affe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banniere]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="0" width="100" height="20" forecolor="#66FF33" backcolor="#CCCCCC" uuid="1a9bcacc-e25e-4924-8e3f-4629c37c6cdc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="432" y="0" width="100" height="20" uuid="0234221d-1d16-4012-a9c5-1872e386c439"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="17" width="100" height="20" uuid="12f0e36d-e722-4090-9a97-7271078cf370"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

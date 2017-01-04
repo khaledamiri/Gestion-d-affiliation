@@ -1,0 +1,386 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
+	<link rel="icon" href="/img/favicon.ico"></link>
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
+		rel="stylesheet"></link>
+	<title>Affilinet | RegisterAnnounceur</title>
+		
+	<!-- Bootstrap core CSS -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom styles for this template -->
+	<link href="../css/jumbotron.css" rel="stylesheet"></link>
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<style type="text/css">
+.ui-growl {
+	position: absolute;
+	right: 0px;
+	top: 50px;
+	font-size: 10px;
+}
+}
+</style>
+</h:head>
+<h:body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.xhtml"><img
+					src="../img/affilinet_logo.png" style="width: 175px; height: 30px;"></img>
+				</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="../index.xhtml">Home</a></li>
+					<li><p:link href="registeraffilie.xhtml"
+							rendered="#{ utilisateurctr.connect}">Affilié</p:link></li>
+							<li  class="active"><p:link href="registerannounceur.xhtml"
+							rendered="#{ utilisateurctr.connect}">Announceur</p:link></li>
+					<li><p:link href="bannieres.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Banniéres</p:link></li>
+					<li><p:link href="consultationrapport.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Rapport</p:link></li>
+					<li><a href="marketplace.xhtml">Marketplace</a></li>
+					<li><a href="apropos.xhtml">A propos</a></li>
+					<li><a href="contact.xhtml">Contact</a></li>
+				</ul><ul class="topnav pull-right">
+					<li><p:link href="../../login.html" value="Se connecter"
+							rendered="#{utilisateurctr.connect}"></p:link> <h:outputLink
+							rendered="#{!utilisateurctr.connect}"
+							value="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">LOGOUT</h:outputLink>
+					</li>
+				</ul>
+			</div>
+			<!--/.navbar-collapse -->
+
+		</div>
+	</nav>
+
+
+
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-8 logo">
+				<h1>S'enregistrer</h1>
+
+				<div class="alert alert-info">
+					L'enregistrement et la validation de votre inscription sur notre
+					plateforme est simple et rapide. <a href="registeraffilie.xhtml">Rejoignez-nous</a>
+				</div>
+
+
+				<div class="teaser-box-3rdlevel">
+					<div class="background"></div>
+				</div>
+			</div>
+		</div>
+		<h:form>
+		<p:growl id="growl" life="3000" />
+			<!-- Example row of columns -->
+			<div style="width: 100%;" class="row">
+
+				<div class="panel-heading">
+					<h2 class="panel-title">
+						<strong>Informations sur le site</strong>
+					</h2>
+					<hr></hr>
+				</div>
+
+				<div class="panel-body">
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="url">URL </label><span
+								class="fa fa-question-circle fa-lg clickable"
+								onclick="PF('dlg1').show();"></span>
+
+							<p:dialog widgetVar="dlg1" minHeight="40">
+								<h:outputText
+									value="Veuillez s&#39;il vous plait saisir l&#39;URL de votre site." />
+							</p:dialog>
+							<p:inputText styleClass="form-control" id="url"
+								value="#{utilisateurctr.utilisateur.url}" required="true"
+								placeholder="Par exemple : http://www.example.com" type="text"
+							></p:inputText>
+
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="categorie">Catégorie</label> <span
+								class="fa fa-question-circle fa-lg clickable"
+								onclick="PF('dlg2').show();"></span>
+
+							<p:dialog widgetVar="dlg2" minHeight="40">
+								<h:outputText
+									value="Veuillez s&#39;il vous plait saisir la catégorie de votre site." />
+							</p:dialog>
+							<h:selectOneMenu id="categorie" styleClass="form-control" required="true"
+								value="#{utilisateurctr.selectcateg}">
+								<f:selectItem itemLabel="--" itemValue="0" />
+								<f:selectItem itemLabel="Agence de voyage"
+									itemValue="Agence de voyage" />
+								<f:selectItem itemLabel="Cosmétique" itemValue="Cosmétique" />
+								<f:selectItem itemLabel="Alimentation" itemValue="Alimentation" />
+								<f:selectItem itemLabel="Electronique" itemValue="Electronique" />
+								<f:selectItem itemLabel="Ordinateur" itemValue="Ordinateur" />
+								<f:selectItem itemLabel="Automobile" itemValue="Automobile" />
+								<f:selectItem itemLabel="Telephone" itemValue="Telephone" />
+
+							</h:selectOneMenu>
+
+						</div>
+					</div>
+
+					<div class="col-sm-12 col-xs-12">
+						<div class="form-group">
+							<label for="Website">Déscription</label>
+							<p:inputTextarea styleClass="form-control" rows="2" cols="100"
+								id="Description"  name="Description" 
+								value="#{utilisateurctr.utilisateur.description_url}"
+								placeholder="Contenu du site, business model et une description de votre activité en tant qu&#39;éditeur." />
+							<span class="maxlength-info">(0/255)</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel-heading">
+					<h2 class="panel-title">
+						<strong>Informations personnelles</strong>
+					</h2>
+					<hr></hr>
+				</div>
+
+				<div class="panel-body">
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="civilite">Civilité</label>
+							<h:selectOneMenu id="civilite" styleClass="form-control" required="true"
+								value="#{utilisateurctr.selectcivil}">
+								<f:selectItem itemLabel="--" itemValue="0" />
+								<f:selectItem itemLabel="M" itemValue="m" />
+								<f:selectItem itemLabel="Mme" itemValue="mme" />
+
+							</h:selectOneMenu>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="prenom">Prénom</label>
+							<p:inputText styleClass="form-control" id="prenom" 
+								 name="prenom" type="text" placeholder="Prénom"
+								value="#{utilisateurctr.utilisateur.prenom}"></p:inputText>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="nom">Nom</label>
+							<p:inputText styleClass="form-control" id="nom" name="nom"  placeholder="Nom"
+								type="text" value="#{utilisateurctr.utilisateur.nom}"></p:inputText>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="nom">Login où Nom Société</label>
+							<p:inputText styleClass="form-control" id="login" name="login" required="true" placeholder="Login où Nom Société"
+								type="text" value="#{utilisateurctr.utilisateur.login}"></p:inputText>
+						</div>
+					</div>
+					
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="mdp">Mot de passe</label>
+							<p:password value="#{utilisateurctr.utilisateur.password}" required="true"
+								styleClass="form-control" id="Password" feedback="true"
+								name="Password"></p:password>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="adresse">Adresse</label>
+							<p:inputText styleClass="form-control" id="adresse" placeholder="rue,cité-ville"
+								name="adresse" type="text" required="true"
+								value="#{utilisateurctr.utilisateur.adresse}"></p:inputText>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="pays">Pays</label>
+							<h:selectOneMenu id="pays" value="#{utilisateurctr.selectpays}" requiredMessage="true"
+								required="true" label="pays" styleClass="form-control">
+								<f:selectItem itemLabel="Afghanistan" itemValue="AF"></f:selectItem>
+								<f:selectItem itemLabel="Afrique du Sud" itemValue="ZA"></f:selectItem>
+								<f:selectItem itemLabel="Albanie" itemValue="AL"></f:selectItem>
+								<f:selectItem itemLabel="Algérie" itemValue="DZ"></f:selectItem>
+								<f:selectItem itemLabel="Syrie" itemValue="SY"></f:selectItem>
+								<f:selectItem itemLabel="Tadjikistan" itemValue="TJ"></f:selectItem>
+								<f:selectItem itemLabel="Thaïlande" itemValue="TH"></f:selectItem>
+								<f:selectItem itemLabel="Timor Oriental" itemValue="TL"></f:selectItem>
+								<f:selectItem itemLabel="Togo" itemValue="TG"></f:selectItem>
+								<f:selectItem itemLabel="Tokelau" itemValue="TK"></f:selectItem>
+								<f:selectItem itemLabel="Tonga" itemValue="TO"></f:selectItem>
+								<f:selectItem itemLabel="Trinité-et-Tobago" itemValue="TT"></f:selectItem>
+								<f:selectItem itemLabel="Tunisie" itemValue="TN"></f:selectItem>
+								<f:selectItem itemLabel="Turkménistan" itemValue="TM"></f:selectItem>
+								<f:selectItem itemLabel="Turks and Caicos Islands"
+									itemValue="TC"></f:selectItem>
+								<f:selectItem itemLabel="Turquie" itemValue="TR"></f:selectItem>
+								<f:selectItem itemLabel="Yémen" itemValue="YE"></f:selectItem>
+								<f:selectItem itemLabel="Zambie" itemValue="ZM"></f:selectItem>
+								<f:selectItem itemLabel="Zimbabwe" itemValue="ZW"></f:selectItem>
+							</h:selectOneMenu>
+						</div>
+					</div>
+					
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="tele">Téléphone</label>
+
+							<p:inputMask styleClass="form-control" id="tele" name="tele" required="true" placeholder="(code pays) télèphone"
+								mask="(999) 99-999999? 99999"
+								value="#{utilisateurctr.utilisateur.tel}" />
+
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="mail">E-mail</label>
+							<p:inputText styleClass="form-control" id="Email" name="Email" required="true" placeholder="exemple@exemple.com"
+								type="text" value="#{utilisateurctr.utilisateur.email}">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+						</div>
+					</div>
+
+
+
+
+				</div>
+
+				<div class="panel-heading">
+					<h2 class="panel-title">
+						<strong> Compléter votre inscription</strong>
+					</h2>
+					<hr></hr>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="checkbox field-AcceptsTerms">
+								<p:selectBooleanCheckbox id="AcceptsTerms" name="AcceptsTerms"
+									value="#{utilisateurctr.terme}" required="true"></p:selectBooleanCheckbox>
+								<input name="AcceptsTerms" type="hidden" value="false"></input>
+								<label for="AcceptsTerms" data-html="true">J'ai lu et
+									j'accepte les <a href="#" target="_blank">Termes et
+										Conditions</a>.
+								</label>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-12 ">
+							<br></br>
+							<p class="text-center">
+								<p:commandButton type="submit" value="Créer un compte éditeur" actionListener="#{utilisateurctr.enregistreutilisateur()}" update="growl"
+									styleClass="btn btn-default btn-primary"></p:commandButton></p>
+							<p class="text-center">
+								<p:commandButton value="Reset" type="reset"
+									styleClass="btn btn-default btn-info" />
+							</p>
+
+
+						</div>
+					</div>
+					
+				</div>
+
+
+			</div>
+		</h:form>
+		<hr></hr>
+
+
+		<footer style="text-align: center; background-color: #BBBBB5">
+			<div class="Footer bg-grey">
+				<div class="container">
+
+					<div class="centerize">
+						<p>
+							<a href="https://twitter.com/affilae" target="_blank"
+								title="Twitter Affilae" class="Footer-social"><span
+								class="fa fa-twitter btn-lg"></span></a> <a
+								href="https://www.facebook.com/Affilae" target="_blank"
+								title="Facebook Affilae" class="Footer-social"><span
+								class="fa fa-facebook btn-lg"></span></a> <a
+								href="https://plus.google.com/114871690647049495925"
+								rel="publisher" target="_blank" title="Google+ Affilae"
+								class="Footer-social "><span
+								class="fa fa-google-plus btn-lg"></span></a>
+						</p>
+
+						<span class="small">© <em>Iprecision 2015</em>. <a
+							href="https://affilae.com/fr" title="affiliation">Plateforme
+								d'affiliation</a>. Tous droits réservés.
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./Jumbotron Template for Bootstrap_files/jquery.min.js"></script>
+	<script src="./Jumbotron Template for Bootstrap_files/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+
+
+</h:body>
+</html>

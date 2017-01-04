@@ -1,0 +1,270 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
+	<link rel="icon" href="/img/favicon.ico"></link>
+
+	<title>Affilinet | A propos</title>
+
+	<!-- Bootstrap core CSS -->
+	<!-- Bootstrap core CSS -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom styles for this template -->
+	<link href="../css/jumbotron.css" rel="stylesheet"></link>
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+</h:head>
+<h:body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.xhtml"><img
+					src="../img/affilinet_logo.png" style="width: 175px; height: 30px;"></img>
+				</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="../index.xhtml">Home</a></li>
+					<li><p:link href="registeraffilie.xhtml"
+							rendered="#{ utilisateurctr.connect}">Affilié</p:link></li>
+							<li><p:link href="registerannounceur.xhtml"
+							rendered="#{ utilisateurctr.connect}">Announceur</p:link></li>
+					<li><p:link href="bannieres.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Banniéres</p:link></li>
+					<li><p:link href="consultationrapport.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Rapport</p:link></li>
+					<li><a href="marketplace.xhtml">Marketplace</a></li>
+					<li class="active"><a href="apropos.xhtml">A propos</a></li>
+					<li><a href="contact.xhtml">Contact</a></li>
+					
+					</ul>
+						<ul class="topnav pull-right">
+					<li><p:link href="../../login.html" value="Se connecter"
+							rendered="#{utilisateurctr.connect}"></p:link> <h:outputLink
+							rendered="#{!utilisateurctr.connect}"
+							value="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">LOGOUT</h:outputLink>
+					</li>
+				</ul>
+			</div>
+			<!--/.navbar-collapse -->
+
+		</div>
+	</nav>
+
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<!-- 	<div class="jumbotron"> -->
+	<!-- 		<div class="container"> -->
+	<!-- 			haut -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-md-12 logo">
+				<h1>A propos</h1>
+
+				<div class="alert alert-info">
+					Qui sommes-nous, pourquoi nous? <a href="apropos.xhtml">Rejoignez
+						Apropos !</a>
+				</div>
+
+
+				<div class="teaser-box-3rdlevel">
+					<div class="background">
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Example row of columns -->
+		<div style="width: 100%;" class="row">
+
+
+			<div class="col-md-8 col-sm-12 col-xs-12 left-column">
+				<div class="content">
+					<h3>
+						<span style="font-family: inherit; line-height: 1.6;">affilinet
+							en bref</span>
+					</h3>
+
+					<p>L’aventure affilinet a commencé avec la création de
+						l’affiliation. En partenariat avec nos clients, nous marquons
+						notre empreinte avec des outils de pointe et des services de
+						qualité, et ce, depuis 15 ans. Nous sommes l’un des leaders
+						européens du marketing à la performance en proposant aux éditeurs,
+						annonceurs et agences des solutions performantes étudiées avec
+						soin. Nous assurons aux programmes et campagnes un succès durable,
+						en sélectionnant des solutions adaptées et une analyse pointue.
+						Grâce à nos technologies innovantes et une analyse pointue des
+						données, tous les facteurs clés sont réunis pour faire des
+						programmes et campagnes de vrais succès pour nos partenaires.</p>
+
+					<p>Une sélection exigeante de nos partenaires permet un retour
+						sur investissement optimal. Nous sommes également très exigeant
+						envers nous-mêmes en ce qui concerne le service et l’innovation,
+						ce qui nous permet de proposer à nos clients des solutions
+						innovantes. Plus de 2500 annonceurs et plus de 500 000 affiliés
+						comme Zalando, Thomas Cook, Auchan ou La Poste nous font
+						confiance.</p>
+
+					<p>Notre siège social se situe en Bavière à Munich. Grâce à nos
+						filiales anglaise, française, espagnole, autrichienne, suisse et
+						hollandaise, nous pouvons offrir à nos partenaires une présence
+						locale et un service irréprochable. affilinet emploie 170
+						personnes à travers l’Europe et fait partie, avec l'entreprise
+						Sedo GmbH, de la Sedo Holding AG. Nous appartenons au groupe
+						United Internet.</p>
+
+					<ul>
+						<li>
+							<p>
+								<strong>Service:<br></br> Compétence et engagement
+								</strong><br></br> Nous sommes toujours présents pour nos clients. Nos
+								experts vous conseillent avec rapidité et professionnalisme,
+								quelle que soit votre problématique. Nous assurons un suivi de
+								vos requêtes et nous élaborons ensemble des solutions
+								appropriées pour optimiser vos performances.
+							</p>
+						</li>
+						<li><strong>Qualité:<br></br> Réseau et plateforme
+						</strong><br></br> La performance d’un réseau dépend avant tout de celui
+							qui l’entretient. Nous vérifions l’adéquation entre nos éditeurs
+							et nos annonceurs. Plus de 2500 annonceurs et plus de 500 000
+							éditeurs apprécient la grande qualité de notre réseau, qui ne
+							cesse de s’étendre. Nous mettons en relation les bons partenaires
+							grâce à l’optimisation et l’automatisation de notre plateforme,
+							et l’expertise de nos équipes.</li>
+						<li><strong>Innovation:<br></br> Outils et palette
+								de produits
+						</strong><br></br> Internet connaît une expansion extrêmement rapide.
+							L’atout d’affilinet réside dans les outils performants, qui
+							permettent d’optimiser un programme en analysant le parcours
+							client ou l’étude détaillée de la rentabilité. Nous développons
+							ainsi en permanence des outils innovants pour répondre aux
+							besoins de nos clients.</li>
+						<li><strong>Expérience:<br></br> Connaissance de
+								l'affiliation, analyse de données
+						</strong><br></br> Nous avons 15 ans d’expérience sur le marché de
+							l’affiliation et nous sommes constamment à l’écoute de nos
+							clients. Notre réseau, comporte une pléiade de secteurs
+							d’activités, nous offre de nombreuses opportunités de
+							benchmarking. Nous mettons tout en œuvre pour développer des
+							solutions sur mesure pour nos clients, qu’il s’agisse d’éditeurs,
+							d’annonceurs ou d’agences publicitaires. Nous travaillons sur
+							tous les secteurs d’activités. Quelque soit votre business model
+							ou votre secteur d’activité, un expert est à votre disposition.</li>
+						<li><strong>Integrité:<br></br> Transparence et
+								contrôle qualité
+						</strong><br></br> Très efficace, notre système de trackingvous permet de
+							vérifier et d’optimiser en permanence votre programme. Nous vous
+							garantissons ainsi le le meilleur ROI possible. En outre, nous
+							avons une démarche systématique de contrôle qualité,
+							indispensable pour limiter les risques de fraudes. La fiabilité
+							est notre devise.</li>
+						<li><strong>Vision européenne:<br></br> Rayonnement
+								international, nouveaux marchés
+						</strong><br></br> Au fil du temps, nous avons renforcé notre présence en
+							Europe. Nous offrons à nos partenaires un accès à des marchés et
+							canaux commerciaux d’envergure internationale.</li>
+						<li><strong>affilinet. The Art of Performance
+								Marketing.</strong></li>
+					</ul>
+
+
+
+
+
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-6 col-sm-12 col-xs-12"></div>
+					<div class="col-md-6 col-sm-12 col-xs-12"></div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12 right-column">
+				<div class="row"></div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<hr></hr>
+
+		
+<footer style="text-align:center;background-color:#BBBBB5" >
+		 <div class="Footer bg-grey">
+  <div class="container">
+			
+			<div class="centerize">
+				<p>
+					<a href="https://twitter.com/affilae" target="_blank"
+						title="Twitter Affilae" class="Footer-social"><span
+						class="fa fa-twitter btn-lg"></span></a> <a
+						href="https://www.facebook.com/Affilae" target="_blank"
+						title="Facebook Affilae" class="Footer-social"><span
+						class="fa fa-facebook btn-lg"></span></a> <a
+						href="https://plus.google.com/114871690647049495925"
+						rel="publisher" target="_blank" title="Google+ Affilae"
+						class="Footer-social "><span class="fa fa-google-plus btn-lg"></span></a>
+				</p>
+
+				<span class="small">© <em>Iprecision 2015</em>. <a
+					href="https://affilae.com/fr" title="affiliation">Plateforme
+						d'affiliation</a>. Tous droits réservés.
+				</span>
+			</div></div></div>
+		</footer >
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./Jumbotron Template for Bootstrap_files/jquery.min.js"></script>
+	<script src="./Jumbotron Template for Bootstrap_files/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+
+
+</h:body>
+</html>

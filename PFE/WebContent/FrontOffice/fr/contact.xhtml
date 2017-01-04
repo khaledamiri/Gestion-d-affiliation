@@ -1,0 +1,215 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
+	<link rel="icon" href="http://getbootstrap.com/favicon.ico"></link>
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
+		rel="stylesheet"></link>
+
+	<title>Affilinet | Contact</title>
+
+	<!-- Bootstrap core CSS -->
+	<!-- Bootstrap core CSS -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom styles for this template -->
+	<link href="../css/jumbotron.css" rel="stylesheet"></link>
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<script src="http://maps.googleapis.com/maps/api/js">
+</script>
+	<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(36.8218125,10.1939177),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+	<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+	<style type="text/css">
+.ui-growl {
+	position: absolute;
+	right: 0px;
+	top: 50px;
+	font-size: 13px;
+}
+}
+</style>
+</h:head>
+<h:body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.xhtml"><img
+					src="../img/affilinet_logo.png" style="width: 175px; height: 30px;"></img>
+				</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="../index.xhtml">Home</a></li>
+					<li><p:link href="registeraffilie.xhtml"
+							rendered="#{ utilisateurctr.connect}">Affilié</p:link></li>
+					<li><p:link href="registerannounceur.xhtml"
+							rendered="#{ utilisateurctr.connect}">Announceur</p:link></li>
+					<li><p:link href="bannieres.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Banniéres</p:link></li>
+					<li><p:link href="consultationrapport.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Rapport</p:link></li>
+					<li><a href="marketplace.xhtml">Marketplace</a></li>
+					<li><a href="apropos.xhtml">A propos</a></li>
+					<li class="active"><a href="contact.xhtml">Contact</a></li>
+				</ul>
+				<ul class="topnav pull-right">
+					<li><p:link href="../../login.html" value="Se connecter"
+							rendered="#{utilisateurctr.connect}"></p:link> <h:outputLink
+							rendered="#{!utilisateurctr.connect}"
+							value="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">LOGOUT</h:outputLink>
+					</li>
+				</ul>
+			</div>
+			<!--/.navbar-collapse -->
+
+		</div>
+	</nav>
+
+
+
+	<div class="container">
+		<!-- Example row of columns -->
+		<div style="width: 100%;" class="row">
+
+			<h1>Contactez-nous</h1>
+
+
+			<!-- a row has to be in a container -->
+			<div class="container">
+				<!-- Contacts -->
+				<div id="contacts">
+					<div class="row">
+						<!-- Alignment -->
+						<div style="margin: 0 auto" class="col-sm-offset-3 col-sm-6">
+							<!-- Form itself -->
+							<h:form name="sentMessage" class="well" id="contactForm">
+								<legend>Contact me</legend>
+								<div class="control-group">
+									<div class="controls">
+										<p:inputText type="text" styleClass="form-control"
+											placeholder="Full Name" id="cf_name"
+											value="#{suggCtr.suggestion.name}"></p:inputText>
+
+
+
+										<p class="help-block"></p>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										<p:inputText type="text" styleClass="form-control"
+											placeholder="E-mail" id="cf_email"
+											value="#{suggCtr.suggestion.email}"></p:inputText>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<div class="controls">
+										<p:inputTextarea rows="10" cols="100" styleClass="form-control"
+											placeholder="Message" id="cf_message" maxlength="999" value="#{suggCtr.suggestion.msg}"
+											style="resize: none" minQueryLength="5"></p:inputTextarea>
+
+
+									</div>
+								</div>
+								<div id="success"></div>
+								<!-- For success/fail messages -->
+								<p:commandButton type="submit" value="Send"
+									actionListener="#{suggCtr.enregistresugg()}"
+									styleClass="btn btn-primary pull-right"></p:commandButton>
+
+								<br />
+							</h:form>
+						</div>
+						<p>
+							<a href="" style="color: #0000FF; text-align: left"
+								target="_blank">Voir en détail</a>
+						<div id="googleMap" style="width: 500px; height: 380px;"></div>
+
+						</p>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- JS FILES -->
+			<script
+				src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		</div>
+
+		<hr></hr>
+
+
+		<footer style="text-align: center; background-color: #BBBBB5">
+			<div class="Footer bg-grey">
+				<div class="container">
+
+					<div class="centerize">
+						<p>
+							<a href="https://twitter.com/affilae" target="_blank"
+								title="Twitter Affilae" class="Footer-social"><span
+								class="fa fa-twitter btn-lg"></span></a> <a
+								href="https://www.facebook.com/Affilae" target="_blank"
+								title="Facebook Affilae" class="Footer-social"><span
+								class="fa fa-facebook btn-lg"></span></a> <a
+								href="https://plus.google.com/114871690647049495925"
+								rel="publisher" target="_blank" title="Google+ Affilae"
+								class="Footer-social "><span
+								class="fa fa-google-plus btn-lg"></span></a>
+						</p>
+
+						<span class="small">© <em>Iprecision 2015</em>. <a
+							href="https://affilae.com/fr" title="affiliation">Plateforme
+								d'affiliation</a>. Tous droits réservés.
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+</h:body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/pfe" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+
+	<!-- IOC -->
+
+	<bean id="utilisateurdao" class="main.java.com.dao.Utilisateurdaoimpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="utilisateurctr" class="main.java.com.controlleur.UtilisateurCtr">
+		<property name="utilisateurdao" ref="utilisateurdao"></property>
+	</bean>
+
+
+	<bean id="banndao" class="main.java.com.dao.Bannieredaoimpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<bean id="bannierectr" class="main.java.com.controlleur.BanniereCtr">
+		<property name="banndao" ref="banndao"></property>
+	</bean>
+
+	<bean id="bannierefilectr" class="com.file.FileUploadView">
+		<property name="banndao" ref="banndao"></property>
+	</bean>
+
+	<bean id="affectationdao" class="main.java.com.dao.Affectationdaoimpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="affectationCtr" class="main.java.com.controlleur.AffectationCtr">
+		<property name="affectationdao" ref="affectationdao"></property>
+	</bean>
+
+
+	<bean id="suggdao" class="main.java.com.dao.Suggdaoimpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="suggCtr" class="main.java.com.controlleur.SuggCtr">
+		<property name="suggdao" ref="suggdao"></property>
+	</bean>
+
+	<bean id="test" class="main.java.com.domaine.Test">
+		<property name="utilisateurdao" ref="utilisateurdao"></property>
+		<property name="utilisateurctr" ref="utilisateurctr"></property>
+		<property name="banndao" ref="banndao"></property>
+		<property name="bannierectr" ref="bannierectr"></property>
+		<property name="suggdao" ref="suggdao"></property>
+		<property name="suggCtr" ref="suggCtr"></property>
+	</bean>
+
+</beans>

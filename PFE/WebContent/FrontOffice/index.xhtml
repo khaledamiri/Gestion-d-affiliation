@@ -1,0 +1,287 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
+	<link rel="icon" href="http://getbootstrap.com/favicon.ico"></link>
+<link
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
+		rel="stylesheet"></link>
+	<title>Affilinet | Acceuil</title>
+
+	<!-- Bootstrap core CSS -->
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+		rel="stylesheet"></link>
+
+	<!-- Custom styles for this template -->
+	<link href="css/jumbotron.css" rel="stylesheet"></link>
+	<link href="css/social-buttons.css" rel="stylesheet"></link>
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+</h:head>
+<h:body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.xhtml"><img
+					src="img/affilinet_logo.png" style="width: 175px; height: 30px;"></img>
+				</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.xhtml">Home</a></li>
+					<li><p:link href="fr/registeraffilie.xhtml"
+							rendered="#{ utilisateurctr.connect}">Affilié</p:link></li>
+							<li><p:link href="fr/registerannounceur.xhtml"
+							rendered="#{ utilisateurctr.connect}">Announceur</p:link></li>
+					<li><p:link href="fr/bannieres.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Banniéres</p:link></li>
+					<li><p:link href="fr/consultationrapport.xhtml"
+							rendered="#{ utilisateurctr.authorized}">Rapport</p:link></li>
+					<li><a href="fr/marketplace.xhtml">Marketplace</a></li>
+					<li><a href="fr/apropos.xhtml">A propos</a></li>
+					<li><a href="fr/contact.xhtml">Contact</a></li>
+
+
+					
+				</ul>
+ <ul class="topnav pull-right">
+      <li>
+              <p:link href="../login.html" value="Se connecter" rendered="#{utilisateurctr.connect}"></p:link>
+              <h:outputLink 
+							 rendered="#{!utilisateurctr.connect}"
+							value="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">LOGOUT</h:outputLink>
+            </li>
+    </ul>
+
+
+			</div>
+			<!--/.navbar-collapse -->
+
+		</div>
+	</nav>
+
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<div class="container">
+			<h1>L'affilinet !</h1>
+
+			<p>
+
+
+
+				<p:galleria value="#{imagesView.images}" var="image"
+					panelWidth="1150" panelHeight="313" showCaption="true">
+					<p:graphicImage value="galerie/#{image}" alt="Affilinet "
+						title="#{image}" />
+				</p:galleria>
+			</p>
+
+			<p>Ce qui fait qu'affilinet est différent, notre passion pour la
+				performance. L’aventure affilinet a commencé par la création de
+				l’affiliation. En partenariat avec nos clients, nous marquons notre
+				empreinte avec des prestations et des services de qualité, et ce,
+				depuis 15 ans. Nous sommes l’un des leaders européens dans ce
+				domaine, et nous proposons aux éditeurs, annonceurs et agences des
+				solutions performantes étudiées avec soin. Nous assurons aux
+				programmes et campagnes un succès durable, par une sélection des
+				technologies appropriées et une analyse des données pointue.</p>
+
+		</div>
+	</div>
+
+	<div class="container">
+		<!-- Example row of columns -->
+		<div style="width: 100%;" class="row">
+			<div class="col-md-4">
+
+				<p>
+				<h2>Taha Voyage</h2>
+				<h:form>
+					<p:panelGrid columns="2">
+						<f:facet name="header">
+							<p:graphicImage
+								value="http://localhost:8080/PFE/uploaded/grand-Jeu-taha.jpg" />
+						</f:facet>
+
+						<h:outputText value="Désignation:" />
+						<h:outputText value="Voyage à Istanbul" />
+
+						<h:outputText value="Prix:" />
+						<h:outputText value="500" />
+
+						<h:outputText value="Prix de promotion:" />
+						<h:outputText value="250" />
+
+
+						<p:fieldset rendered="#{utilisateurctr.authorized}">
+
+							<p:commandButton value="Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop);"
+								icon="ui-icon-arrowthick-1-s">
+								<p:fileDownload value="#{fileDownloadView.file}" />
+							</p:commandButton>
+						</p:fieldset>
+
+
+					</p:panelGrid>
+
+				</h:form>
+				</p>
+
+
+				<p>
+					<a class="btn btn-default"
+						href="http://www.tahavoyages.com/acceuil-siteweb-Taha-Voyages-reservation-online-tunisie-707-1.aspx"
+						target="_blank" role="button">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+
+				<p>
+				<h2>Hamadi Abid</h2>
+				<h:form>
+					<p:panelGrid columns="2">
+						<f:facet name="header">
+							<p:graphicImage value="http://localhost:8080/PFE/uploaded/ha.jpg" />
+						</f:facet>
+
+						<h:outputText value="Désignation:" />
+						<h:outputText value="Nouvelle Collection" />
+
+						<h:outputText value="Prix:" />
+						<h:outputText value="40 DT" />
+
+						<h:outputText value="Prix de promotion:" />
+						<h:outputText value="25 DT" />
+						<p:fieldset rendered="#{utilisateurctr.authorized}">
+
+							<p:commandButton value="Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop);"
+								icon="ui-icon-arrowthick-1-s">
+								<p:fileDownload value="#{fileDownloadView.file}" />
+							</p:commandButton>
+						</p:fieldset>
+
+					</p:panelGrid>
+
+				</h:form>
+				</p>
+
+				<p>
+					<a class="btn btn-default"
+						href="https://www.ha.com.tn/Fr/accueil_46_206" target="_blank"
+						role="button">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<p>
+				<h2>Houria Palace</h2>
+				<h:form>
+					<p:panelGrid columns="2">
+						<f:facet name="header">
+							<p:graphicImage
+								value="http://localhost:8080/PFE/uploaded/houria_site_avril.jpg" />
+						</f:facet>
+
+						<h:outputText value="Désignation:" />
+						<h:outputText value="Réservation hotel" />
+
+						<h:outputText value="Prix:" />
+						<h:outputText value="64 DT" />
+
+						<h:outputText value="Prix de promotion:" />
+						<h:outputText value="34.5 DT" />
+						<p:fieldset rendered="#{utilisateurctr.authorized}">
+
+							<p:commandButton value="Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop);"
+								icon="ui-icon-arrowthick-1-s">
+								<p:fileDownload value="#{fileDownloadView.file}" />
+							</p:commandButton>
+						</p:fieldset>
+
+					</p:panelGrid>
+
+				</h:form>
+				</p>
+
+				<p>
+					<a class="btn btn-default"
+						href="http://www.tripadvisor.fr/Hotel_Review-g297952-d316767-Reviews-Houria_Palace_Hotel-Port_El_Kantaoui_Sousse_Governorate.html"
+						role="button" target="_blank">View details »</a>
+				</p>
+			</div>
+		</div>
+
+		<hr></hr>
+
+		
+<footer style="text-align:center;background-color:#BBBBB5" >
+		 <div class="Footer bg-grey">
+  <div class="container">
+			
+			<div class="centerize">
+				<p>
+					<a href="https://twitter.com/affilae" target="_blank"
+						title="Twitter Affilae" class="Footer-social"><span
+						class="fa fa-twitter btn-lg"></span></a> <a
+						href="https://www.facebook.com/Affilae" target="_blank"
+						title="Facebook Affilae" class="Footer-social"><span
+						class="fa fa-facebook btn-lg"></span></a> <a
+						href="https://plus.google.com/114871690647049495925"
+						rel="publisher" target="_blank" title="Google+ Affilae"
+						class="Footer-social "><span class="fa fa-google-plus btn-lg"></span></a>
+				</p>
+
+				<span class="small">© <em>Iprecision 2015</em>. <a
+					href="https://affilae.com/fr" title="affiliation">Plateforme
+						d'affiliation</a>. Tous droits réservés.
+				</span>
+			</div></div></div>
+		</footer >
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./Jumbotron Template for Bootstrap_files/jquery.min.js"></script>
+	<script src="./Jumbotron Template for Bootstrap_files/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script
+		src="./Jumbotron Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+
+
+</h:body>
+</html>

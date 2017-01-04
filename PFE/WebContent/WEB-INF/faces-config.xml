@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee          http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<managed-bean>
+		<managed-bean-name>utilisateurctr</managed-bean-name>
+		<managed-bean-class>main.java.com.controlleur.UtilisateurCtr</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>utilisateurdao</property-name>
+			<value>#{utilisateurdao}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>bannierectr</managed-bean-name>
+		<managed-bean-class>main.java.com.controlleur.BanniereCtr</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>banndao</property-name>
+			<value>#{banndao}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>bannierefilectr</managed-bean-name>
+		<managed-bean-class>com.file.FileUploadView</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>banndao</property-name>
+			<value>#{banndao}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>affectationCtr</managed-bean-name>
+		<managed-bean-class>main.java.com.controlleur.AffectationCtr</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>affectationdao</property-name>
+			<value>#{affectationdao}</value>
+		</managed-property>
+	</managed-bean>
+	
+		<managed-bean>
+		<managed-bean-name>suggCtr</managed-bean-name>
+		<managed-bean-class>main.java.com.controlleur.SuggCtr</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>suggdao</property-name>
+			<value>#{suggdao}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>bannierefileCtr</managed-bean-name>
+		<managed-bean-class>main.java.com.controlleur.BannierefileCtr</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+<!-- 	<navigation-rule> -->
+<!-- 		<from-view-id>pwd_lost.xhtml</from-view-id> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>send</from-outcome> -->
+<!-- 			<to-view-id>login.html</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 	</navigation-rule> -->
+
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+</faces-config>

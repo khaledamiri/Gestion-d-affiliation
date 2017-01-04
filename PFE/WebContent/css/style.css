@@ -1,0 +1,28 @@
+body {
+	background-color: lightgrey;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+div {
+	color: blue;
+	text-align: left;
+}
+
+div,fieldset {
+	width: 250px;
+	line-height: 50%;
+}
+
+output {
+	margin-left: 5px;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-family: Verdana;
+	color: navy;
+	font-size: 10px;
+}
+span{font-size: 10px;}

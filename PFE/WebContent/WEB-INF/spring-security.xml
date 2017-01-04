@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/db.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/login.xhtml"
+			access="isAnonymous()" />
+
+		<security:intercept-url pattern="/BackOffice/**"
+			access="hasRole('ROLE_ADMIN')" />
+
+
+
+		<security:form-login login-page="/login.html"
+			login-processing-url="/j_spring_security_check"
+			authentication-failure-url="/acces-denied.xhtml" default-target-url="/index.xhtml"
+			always-use-default-target="true" authentication-success-handler-ref="utilisateurctr" />
+
+		<security:remember-me />
+		<security:logout logout-success-url="/login.html?logout" />
+
+	</security:http>
+
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="SELECT login as username, password, enabled FROM utilisateur WHERE login = ?"
+				authorities-by-username-query="SELECT login as username ,authority FROM authorities WHERE login = ?" />
+			
+		</security:authentication-provider>
+
+	</security:authentication-manager>
+
+
+
+</beans>

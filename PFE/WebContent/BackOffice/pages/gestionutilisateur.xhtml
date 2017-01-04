@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!--     <meta charset="UTF-8"></meta> -->
+	<title>AdminIprecision | Dashboard</title>
+	<meta
+		content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+		name='viewport'></meta>
+	<link
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+	<!-- Ionicons -->
+	<link
+		href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css"
+		rel="stylesheet" type="text/css" />
+	<!-- Theme style -->
+	<link href="../dist/css/AdminLTE.min.css" rel="stylesheet"
+		type="text/css" />
+	<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+	<link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet"
+		type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<style type="text/css">
+.ui-growl {
+	position: absolute;
+	right: 0px;
+	top: 50px;
+	font-size: 13px;
+}
+}
+</style>
+<style type="text/css">
+.colored {
+background-color: #00FF00;
+color: #FFFFFF;
+}
+</style>
+</h:head>
+<h:body class="skin-blue">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+		<!-- header logo: style can be found in header.less -->
+		<header class="main-header"> <a href="../../index2.html"
+			class="logo"><b>Admin</b>Iprecision</a> <!-- Header Navbar: style can be found in header.less -->
+		<nav class="navbar navbar-static-top" role="navigation"> <!-- Sidebar toggle button-->
+		<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+			role="button"> <span class="sr-only">Toggle navigation</span> <span
+			class="icon-bar"></span> <span class="icon-bar"></span> <span
+			class="icon-bar"></span>
+		</a> <!--           <div class="navbar-custom-menu"> --> <!--             <ul class="nav navbar-nav"> -->
+		<!--               Messages: style can be found in dropdown.less --> <!--               <li class="dropdown messages-menu"> -->
+		<!--                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+		<!--                   <i class="fa fa-envelope-o"></i> --> <!--                   <span class="label label-success">4</span> -->
+		<!--                 </a> --> <!--                 <ul class="dropdown-menu"> -->
+		<!--                   <li class="header">You have 4 messages</li> -->
+		<!--                   <li> --> <!--                     inner menu: contains the actual data -->
+		<!--                     <ul class="menu"> --> <!--                       <li>start message -->
+		<!--                         <a href="#"> --> <!--                           <div class="pull-left"> -->
+		<!--                             <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/> -->
+		<!--                           </div> --> <!--                           <h4> -->
+		<!--                             Support Team --> <!--                             <small><i class="fa fa-clock-o"></i> 5 mins</small> -->
+		<!--                           </h4> --> <!--                           <p>Why not buy a new awesome theme?</p> -->
+		<!--                         </a> --> <!--                       </li>end message -->
+		<!--                     </ul> --> <!--                   </li> --> <!--                   <li class="footer"><a href="#">See All Messages</a></li> -->
+		<!--                 </ul> --> <!--               </li> --> <!--               Notifications: style can be found in dropdown.less -->
+		<!--               <li class="dropdown notifications-menu"> --> <!--                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+		<!--                   <i class="fa fa-bell-o"></i> --> <!--                   <span class="label label-warning">10</span> -->
+		<!--                 </a> --> <!--                 <ul class="dropdown-menu"> -->
+		<!--                   <li class="header">You have 10 notifications</li> -->
+		<!--                   <li> --> <!--                     inner menu: contains the actual data -->
+		<!--                     <ul class="menu"> --> <!--                       <li> -->
+		<!--                         <a href="#"> --> <!--                           <i class="fa fa-users text-aqua"></i> 5 new members joined today -->
+		<!--                         </a> --> <!--                       </li> -->
+		<!--                     </ul> --> <!--                   </li> --> <!--                   <li class="footer"><a href="#">View all</a></li> -->
+		<!--                 </ul> --> <!--               </li> --> <!--               Tasks: style can be found in dropdown.less -->
+		<!--               <li class="dropdown tasks-menu"> --> <!--                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+		<!--                   <i class="fa fa-flag-o"></i> --> <!--                   <span  	class="label label-danger">9</span> -->
+		<!--                 </a> --> <!--                 <ul class="dropdown-menu"> -->
+		<!--                   <li class="header">You have 9 tasks</li> --> <!--                   <li> -->
+		<!--                     inner menu: contains the actual data --> <!--                     <ul class="menu"> -->
+		<!--                       <li>Task item --> <!--                         <a href="#"> -->
+		<!--                           <h3> --> <!--                             Design some buttons -->
+		<!--                             <small class="pull-right">20%</small> -->
+		<!--                           </h3> --> <!--                           <div class="progress xs"> -->
+		<!--                             <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"> -->
+		<!--                               <span class="sr-only">20% Complete</span> -->
+		<!--                             </div> --> <!--                           </div> -->
+		<!--                         </a> --> <!--                       </li>end task item -->
+		<!--                     </ul> --> <!--                   </li> --> <!--                   <li class="footer"> -->
+		<!--                     <a href="#">View all tasks</a> --> <!--                   </li> -->
+		<!--                 </ul> --> <!--               </li> --> <!--               User Account: style can be found in dropdown.less -->
+		<!--               <li class="dropdown user user-menu"> --> <!--                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+		<!--                   <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/> -->
+		<!--                   <span class="hidden-xs">Alexander Pierce</span> -->
+		<!--                 </a> --> <!--                 <ul class="dropdown-menu"> -->
+		<!--                   User image --> <!--                   <li class="user-header"> -->
+		<!--                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" /> -->
+		<!--                     <p> --> <!--                       Alexander Pierce - Web Developer -->
+		<!--                       <small>Member since Nov. 2012</small> --> <!--                     </p> -->
+		<!--                   </li> --> <!--                   Menu Body -->
+		<!--                   <li class="user-body"> --> <!--                     <div class="col-xs-4 text-center"> -->
+		<!--                       <a href="#">Followers</a> --> <!--                     </div> -->
+		<!--                     <div class="col-xs-4 text-center"> --> <!--                       <a href="#">Sales</a> -->
+		<!--                     </div> --> <!--                     <div class="col-xs-4 text-center"> -->
+		<!--                       <a href="#">Friends</a> --> <!--                     </div> -->
+		<!--                   </li> --> <!--                   Menu Footer -->
+		<!--                   <li class="user-footer"> --> <!--                     <div class="pull-left"> -->
+		<!--                       <a href="#" class="btn btn-default btn-flat">Profile</a> -->
+		<!--                     </div> --> <!--                     <div class="pull-right"> -->
+		<!--                       <a href="#" class="btn btn-default btn-flat">Sign out</a> -->
+		<!--                     </div> --> <!--                   </li> --> <!--                 </ul> -->
+		<!--               </li> --> <!--             </ul> --> <!--           </div> -->
+		</nav> </header>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<aside class="main-sidebar"> <!-- sidebar: style can be found in sidebar.less -->
+		<section class="sidebar"> <!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img src="../dist/img/khaledamiri.jpg" class="img-circle"
+					alt="User Image" />
+			</div>
+			<div class="pull-left info">
+				<p>
+					<h:outputText value="#{utilisateurctr.loggedUser}"></h:outputText>
+				</p>
+
+
+				<a href="#"><i class="fa fa-circle text-success"></i> <h:outputLink
+						value="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">
+						<h:outputText value="Online" />
+					</h:outputLink> </a>
+			</div>
+		</div>
+		<!-- search form -->
+		<form action="#" method="get" class="sidebar-form">
+			<div class="input-group">
+				<input type="text" name="q" class="form-control"
+					placeholder="Search..." /> <span class="input-group-btn">
+					<button type='submit' name='seach' id='search-btn'
+						class="btn btn-flat">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
+			</div>
+		</form>
+		<!-- /.search form --> <!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu">
+			<li class="header">MAIN NAVIGATION</li>
+			<li class="treeview"><a href="../index.xhtml"> <i
+					class="fa fa-dashboard"></i> <span>Dashboard</span> <i
+					class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+					<li><a href="../index.xhtml"><i class="fa fa-circle-o"></i>
+							Dashboard </a></li>
+				</ul></li>
+
+
+
+			<li><a href="gestionBannieres.xhtml"> <i class="fa fa-table"></i>
+					<span>Gestion des banniéres</span> <small
+					class="label pull-right bg-red"><h:form>
+							<p:outputLabel id="txt_count1" value="#{bannierectr.number}" />
+
+							<p:poll listener="#{bannierectr.sizeBann()}" update="txt_count1" />
+						</h:form></small>
+			</a></li>
+			<li><a href="gestionCssBann.xhtml"> <i class="fa fa-table"></i>
+					<span>Gestion CSS des banniéres</span>
+			</a></li>
+			<li class="active"><a href="gestionutilisateur.xhtml"> <i
+					class="fa fa-table"></i> <span>Gestion des utililisateurs</span> <small
+					class="label pull-right bg-red"><h:form>
+							<p:outputLabel id="txt_count" value="#{utilisateurctr.number}" />
+
+							<p:poll listener="#{utilisateurctr.sizeUtil()}"
+								update="txt_count" />
+						</h:form> </small>
+			</a></li>
+
+
+			<li><a href="commission.xhtml"> <i class="fa fa-history"></i>
+					<span>Gestion du traçabilité d'affilié</span>
+			</a></li>
+			<li><a href="calendar.xhtml"> <i class="fa fa-calendar"></i>
+					<span>Calendar</span> <small class="label pull-right bg-red">3</small>
+			</a></li>
+			<li ><a href="mails.xhtml"> <i
+					class="fa fa-envelope"></i> <span>Mailbox</span> <small
+					class="label pull-right bg-yellow"><h:form>
+							<p:outputLabel id="txt_count3" value="#{suggCtr.number}" />
+
+							<p:poll listener="#{suggCtr.sizemail()}" update="txt_count3" />
+						</h:form></small>
+			</a></li>
+
+
+			<li><a href="webservice.xhtml"> <i class="fa  fa-weibo"></i>
+					<span>Mes Web-Services</span>
+			</a></li>
+
+
+		</ul>
+		</section> <!-- /.sidebar --> </aside>
+
+		<!-- =============================================== -->
+
+		<!-- Right side column. Contains the navbar and content of the page -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+			<h1>
+				Gestion des utilisateurs <small>Preview</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="../index.xhtml"><i class="fa fa-dashboard"></i>
+						Home</a></li>
+				<li><a href="#">Pages</a></li>
+				<li class="active">gérer un utilisateur</li>
+			</ol>
+			</section>
+
+			<!-- Main content -->
+			<section class="content"> <!-- Default box -->
+			<div class="box">
+				<!-- 				<div class="box-header with-border"> -->
+				<!-- 					<h3 class="box-title"> Liste des banniéres</h3> -->
+				<!--               <div class="box-tools pull-right"> -->
+				<!--                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button> -->
+				<!--                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button> -->
+				<!--               </div> -->
+				<!-- 				</div> -->
+				<div class="box-body">
+
+
+					<p:fieldset legend="Insérer un affilie" toggleable="true"
+						toggleSpeed="500">
+						<h:form styleClass="form-horizontal">
+							<p:growl id="growl" life="2000" />
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label" value="Url" />
+								<div class="col-sm-6">
+									<p:inputText value="#{utilisateurctr.utilisateur.url}" id="url"
+										styleClass="form-control" placeholder="www.exemple.com" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Catégorie" />
+								<div class="col-sm-6">
+									<h:selectOneMenu id="categorie" styleClass="form-control"
+										required="true" value="#{utilisateurctr.selectcateg}">
+										<f:selectItem itemLabel="--" itemValue="null" />
+										<f:selectItem itemLabel="Agence de voyage"
+											itemValue="Agence de voyage" />
+										<f:selectItem itemLabel="Cosmétique" itemValue="Cosmétique" />
+										<f:selectItem itemLabel="Alimentation"
+											itemValue="Alimentation" />
+										<f:selectItem itemLabel="Electronique"
+											itemValue="Electronique" />
+										<f:selectItem itemLabel="Ordinateur" itemValue="Ordinateur" />
+										<f:selectItem itemLabel="Automobile" itemValue="Automobile" />
+										<f:selectItem itemLabel="Telephone" itemValue="Telephone" />
+
+									</h:selectOneMenu>
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Déscription" />
+								<div class="col-sm-6">
+									<p:inputTextarea styleClass="form-control" rows="2" cols="100"
+										id="Description" name="Description"
+										value="#{utilisateurctr.utilisateur.description_url}"
+										placeholder="Contenu du site, business model et une description de votre activité en tant qu&#39;éditeur." />
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Civilité" />
+								<div class="col-sm-6">
+									<h:selectOneMenu id="civilite" styleClass="form-control"
+										 value="#{utilisateurctr.selectcivil}">
+										<f:selectItem itemLabel="--" itemValue="null" />
+										<f:selectItem itemLabel="M" itemValue="m" />
+										<f:selectItem itemLabel="Mme" itemValue="mme" />
+
+									</h:selectOneMenu>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Prénom" />
+								<div class="col-sm-6">
+									<p:inputText styleClass="form-control" id="prenom"
+										 name="prenom" type="text" placeholder="Prenom"
+										value="#{utilisateurctr.utilisateur.prenom}"></p:inputText>
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label" value="Nom" />
+								<div class="col-sm-6">
+									<p:inputText styleClass="form-control" id="nom" name="nom"
+										 type="text" placeholder="Nom"
+										value="#{utilisateurctr.utilisateur.nom}"></p:inputText>
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label" value="Login où Nom société" />
+								<div class="col-sm-6">
+									<p:inputText styleClass="form-control" id="login" name="login"
+										placeholder="Login" required="true" type="text"
+										value="#{utilisateurctr.utilisateur.login}"></p:inputText>
+
+								</div>
+							</div>
+							<div class="form-group">
+
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Mot de passe" />
+								<div class="col-sm-6">
+
+									<p:password value="#{utilisateurctr.utilisateur.password}"
+										required="true" styleClass="form-control" id="Password"
+										feedback="true" name="Password"></p:password>
+
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Adresse" />
+								<div class="col-sm-6">
+									<p:inputText styleClass="form-control" id="adresse"
+										name="adresse" type="text" required="true" placeholder="rue,ville-pays"
+										value="#{utilisateurctr.utilisateur.adresse}"></p:inputText>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label" value="Pays" />
+								<div class="col-sm-6">
+									<h:selectOneMenu id="pays" value="#{utilisateurctr.selectpays}"
+										requiredMessage="true" required="true" label="pays"
+										styleClass="form-control">
+										<f:selectItem itemLabel="--" itemValue="null"></f:selectItem>
+										<f:selectItem itemLabel="Afghanistan" itemValue="AF"></f:selectItem>
+										<f:selectItem itemLabel="Afrique du Sud" itemValue="ZA"></f:selectItem>
+										<f:selectItem itemLabel="Albanie" itemValue="AL"></f:selectItem>
+										<f:selectItem itemLabel="Algérie" itemValue="DZ"></f:selectItem>
+										<f:selectItem itemLabel="Syrie" itemValue="SY"></f:selectItem>
+										<f:selectItem itemLabel="Tadjikistan" itemValue="TJ"></f:selectItem>
+										<f:selectItem itemLabel="Thaïlande" itemValue="TH"></f:selectItem>
+										<f:selectItem itemLabel="Timor Oriental" itemValue="TL"></f:selectItem>
+										<f:selectItem itemLabel="Togo" itemValue="TG"></f:selectItem>
+										<f:selectItem itemLabel="Tokelau" itemValue="TK"></f:selectItem>
+										<f:selectItem itemLabel="Tonga" itemValue="TO"></f:selectItem>
+										<f:selectItem itemLabel="Trinité-et-Tobago" itemValue="TT"></f:selectItem>
+										<f:selectItem itemLabel="Tunisie" itemValue="TN"></f:selectItem>
+										<f:selectItem itemLabel="Turkménistan" itemValue="TM"></f:selectItem>
+										<f:selectItem itemLabel="Turks and Caicos Islands"
+											itemValue="TC"></f:selectItem>
+										<f:selectItem itemLabel="Turquie" itemValue="TR"></f:selectItem>
+										<f:selectItem itemLabel="Yémen" itemValue="YE"></f:selectItem>
+										<f:selectItem itemLabel="Zambie" itemValue="ZM"></f:selectItem>
+										<f:selectItem itemLabel="Zimbabwe" itemValue="ZW"></f:selectItem>
+									</h:selectOneMenu>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="Télèphone" />
+								<div class="col-sm-6">
+									<p:inputMask styleClass="form-control" id="tele" name="tele"
+										required="true" mask="(999) 99-999999? 99999" placeholder="code pays télèphone"
+										value="#{utilisateurctr.utilisateur.tel}" />
+
+								</div>
+							</div>
+							<div class="form-group">
+								<p:outputLabel styleClass="col-sm-2 control-label"
+									value="E-mail" />
+								<div class="col-sm-6">
+									<p:inputText styleClass="form-control" id="Email" name="Email"
+										required="true" type="text" placeholder="exemple@exemple.com"
+										value="#{utilisateurctr.utilisateur.email}">
+										<f:validateRegex
+											pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+									</p:inputText>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-sm-12 ">
+									<br></br>
+									<p class="text-center">
+										<h:commandButton type="submit" value="Créer un compte affilie"
+											actionListener="#{utilisateurctr.enregistreutilisateuradmin()}"
+											update="growl" styleClass="btn btn-default btn-primary"></h:commandButton>
+									</p>
+									<p class="text-center">
+										<h:commandButton value="Reset" type="reset"
+											styleClass="btn btn-default btn-warning" />
+									</p>
+
+
+								</div>
+							</div>
+						</h:form>
+					</p:fieldset>
+
+
+
+					<p:fieldset legend="Supprimer/Modiffier un utilisateur"
+						toggleable="true" toggleSpeed="500">
+
+
+
+
+						<h:form id="form">
+
+							<p:dataTable id="basicDT" var="car" paginator="true"
+								value="#{utilisateurctr.utiliTitles}" rowStyleClass="#{car.affilie eq 'aff' ? 'colored' : null}">
+
+								<p:column headerText="Nom" filterMatchMode="contains"
+									filterBy="#{car.nom}">
+									<h:outputText value="#{car.nom}" />
+								</p:column>
+								<p:column headerText="Prénom" filterMatchMode="contains"
+									filterBy="#{car.prenom}">
+									<h:outputText value="#{car.prenom}" />
+								</p:column>
+								<p:column headerText="Login" filterMatchMode="contains"
+									filterBy="#{car.login}">
+									<h:outputText value="#{car.login}" />
+								</p:column>
+								<p:column headerText="Clé" filterMatchMode="contains"
+									filterBy="#{car.key}">
+									<h:outputText value="#{car.key}" />
+								</p:column>
+								<p:column headerText="Télèphone" filterMatchMode="contains"
+									filterBy="#{car.tel}">
+									<h:outputText value="#{car.tel}" />
+								</p:column>
+								<p:column headerText="E-mail" filterMatchMode="contains"
+									filterBy="#{car.email}">
+									<h:outputText value="#{car.email}" />
+								</p:column>
+
+								<p:column headerText="Adresse" filterMatchMode="contains"
+									filterBy="#{car.adresse}">
+									<h:outputText value="#{car.adresse}" />
+								</p:column>
+								<p:column headerText="URL" filterMatchMode="contains"
+									filterBy="#{car.url}">
+									<h:outputText value="#{car.url}" />
+								</p:column>
+								<p:column headerText="Enabled" filterMatchMode="contains"
+									filterBy="#{car.enabled}">
+									<h:outputText value="#{car.enabled}" />
+								</p:column>
+								<p:column style="width:60px;text-align: center">
+									<p:commandButton update=":form:carDetail"
+										oncomplete="PF('carDialog').show()" icon="ui-icon-search"
+										title="View">
+										<f:setPropertyActionListener value="#{car}"
+											target="#{utilisateurctr.utilidatatable}" />
+									</p:commandButton>
+								</p:column>
+							</p:dataTable>
+
+							<p:dialog header="Utilisateur Info" widgetVar="carDialog"
+								modal="true" showEffect="fade" hideEffect="fade"
+								resizable="false">
+								<p:outputPanel id="carDetail" style="text-align:center;">
+									<p:panelGrid columns="2"
+										rendered="#{not empty utilisateurctr.utilidatatable}">
+
+										<p:outputLabel value="Nom" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.nom}" />
+
+										<p:outputLabel value="Prénom" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.prenom}" />
+
+										<p:outputLabel value="Login" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.login}" />
+
+										<p:outputLabel value="Clé" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.key}" />
+
+										<p:outputLabel value="Télèphone" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.tel}" />
+
+										<p:outputLabel value="E-mail" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.email}" />
+
+
+										<p:outputLabel value="Adresse" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.adresse}" />
+
+										<p:outputLabel value="URL" />
+										<p:inputText value="#{utilisateurctr.utilidatatable.url}" />
+
+
+
+
+
+
+
+										<p:outputLabel for="consolee" value="Enabled:" />
+										<h:selectOneMenu id="consolee"
+											value="#{utilisateurctr.utilidatatable.enabled}"
+											style="width:125px">
+											<f:selectItem itemLabel="Select One" itemValue="" />
+											<f:selectItem itemLabel="true" itemValue="1" />
+											<f:selectItem itemLabel="false" itemValue="0" />
+										</h:selectOneMenu>
+
+										<h:commandButton
+											action="#{utilisateurctr.deleteActionUtil(utilidatatable)}"
+											value="Supprimer" icon="ui-icon-check"
+											styleClass="btn btn-danger" />
+										<h:commandButton
+											action="#{utilisateurctr.updateActionUtil(utilidatatable)}"
+											value="Modifier" icon="ui-icon-check"
+											styleClass="btn btn-success" />
+									</p:panelGrid>
+								</p:outputPanel>
+							</p:dialog>
+						</h:form>
+
+
+					</p:fieldset>
+
+					<p:fieldset legend="Affécter un rôle pour un utilisateur"
+						toggleable="true" toggleSpeed="500">
+
+						<h:form id="formaff" styleClass="form-horizontal">
+							<p:growl id="growl" showDetail="true" life="3000" />
+
+							<div class="form-group">
+								<h:outputLabel value="Utilisateurs * : "
+									styleClass="col-sm-2 control-label" />
+								<div class="col-sm-6">
+									<h:selectOneMenu id="Announceur"
+										value="#{utilisateurctr.selectpartner}"
+										styleClass="form-control">
+
+										<f:selectItem itemLabel="-- Utilisateurs -- " />
+										<f:selectItems value="#{utilisateurctr.itemsUser}" />
+
+									</h:selectOneMenu>
+								</div>
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Authorité * : "
+									styleClass="col-sm-2 control-label" />
+								<div class="col-sm-6">
+									<h:selectOneMenu id="Utilisateur" styleClass="form-control"
+										value="#{utilisateurctr.selectauth}">
+										<f:selectItem itemLabel="-- Autorité --" itemValue="0" />
+										<f:selectItem itemLabel="ROLE_AFFILIE"
+											itemValue="ROLE_AFFILIE" />
+										<f:selectItem itemLabel="ROLE_ADMIN" itemValue="ROLE_ADMIN" />
+										<f:selectItem itemLabel="ROLE_PARTNER"
+											itemValue="ROLE_PARTNER" />
+
+									</h:selectOneMenu>
+								</div>
+							</div>
+
+
+
+
+
+							<div class="row">
+								<div class="col-sm-12 ">
+									<br></br>
+									<p class="text-center">
+
+										<h:commandButton value="Enregistrer"
+											styleClass="btn btn-default btn-primary"
+											actionListener="#{utilisateurctr.enregistreaffectation()}"
+											update="growl" icon="ui-icon-check" />
+									</p>
+
+									<p class="text-center">
+										<h:commandButton value="Reset" type="reset"
+											styleClass="btn btn-warning" />
+									</p>
+								</div>
+							</div>
+
+
+						</h:form>
+
+					</p:fieldset>
+
+
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">
+
+					<!-- 				Footer -->
+				</div>
+				<!-- /.box-footer-->
+			</div>
+			<!-- /.box --> </section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<footer class="main-footer">
+		<div class="pull-right hidden-xs">
+			<b>Version</b> béta
+		</div>
+		<strong>Copyright &copy; 2014-2015 <a
+			href="http://www.time.ens.tn/">TIME</a>.
+		</strong> All rights reserved. </footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- 	<script -->
+	<!-- 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+	<!--     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script> -->
+	<!-- SlimScroll -->
+	<!-- 	<script src="../plugins/slimScroll/jquery.slimScroll.min.js" -->
+	<!-- 		type="text/javascript"></script> -->
+	<!-- FastClick -->
+	<script src='../plugins/fastclick/fastclick.min.js'></script>
+	<!-- AdminLTE App -->
+	<!-- 	<script src="../dist/js/app.min.js" type="text/javascript"></script> -->
+	<!-- AdminLTE for demo purposes -->
+	<!-- 	<script src="../../dist/js/demo.js" type="text/javascript"></script> -->
+</h:body>
+</html>

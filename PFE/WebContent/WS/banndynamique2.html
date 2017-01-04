@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body>
+
+	<div id="d">
+		<fieldset>
+
+			<table>
+				<tr>
+					<th rowspan="3"><a id="img" target="_blank" href=""><img onclick="ipFunction()" id="ban" src=""></a></th>
+					<td><output>D&eacute;ignation :</output><span id="design"></span></td>
+
+				</tr>
+
+
+
+				<tr>
+					<td><output>Prix :</output> <span id="prix"></span></td>
+				</tr>
+				<tr>
+					<td><output>Prix Promo :</output> <span id="prixpromo"></span></td>
+				</tr>
+
+
+			</table>
+
+		</fieldset>
+	</div>
+	<!-- script pour l'afficahage du banniére a partir mil XML -->
+	<script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  var key=3;//je donne le key oû l'affilié va remplir
+  var id=13;//admin change l'id statiquemment selon banniere qu'il souhaite afficher
+//   var idcss=1;//admin lui fournit un id selon le css préféré
+xmlhttp.open("GET","http://localhost:8080/PFE/rest/xml/banner/givebann/"+key+"/"+id,false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML;
+
+document.getElementById("design").innerHTML=
+xmlDoc.getElementsByTagName("DESIGN_BANN")[0].childNodes[0].nodeValue;
+
+document.getElementById("prix").innerHTML=
+xmlDoc.getElementsByTagName("PRIX_BANN")[0].childNodes[0].nodeValue;
+
+document.getElementById("prixpromo").innerHTML=
+xmlDoc.getElementsByTagName("PRIX_PROMO")[0].childNodes[0].nodeValue;
+
+document.getElementById("ban").src=
+	xmlDoc.getElementsByTagName("LIEN_DE_BANN")[0].childNodes[0].nodeValue;
+	
+document.getElementById("img").href=
+	xmlDoc.getElementsByTagName("URL_BANN")[0].childNodes[0].nodeValue;
+</script>
+<!-- script pour insérere les info concernant affilié son visiteur et design bann -->
+<script language="JavaScript">
+
+function ipFunction() {
+	
+
+//Enregistrement des informations	
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+}
+
+
+var d = new Date();
+var curr_date = d.getDate();
+var curr_month = d.getMonth() + 1; //Months are zero based
+var curr_year = d.getFullYear();
+// document.write(curr_date + "-" + curr_month + "-" + curr_year);
+var res = curr_year+ "-" +curr_month+ "-" +curr_date;
+//WEeb service oû il enregistre les info dans la base
+ 
+var url="http://localhost:8080/PFE/rest/xml/banner/getAffIp/"+userip+"/"+key+"/"+id+"/"+res;
+xmlhttp.open("GET",url,false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML;
+}
+//window.onload =ipFunction;
+</script>
+
+
+<script type="text/javascript">
+
+  var userip;
+</script>
+
+<script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+
+
+</body>
+</html>
